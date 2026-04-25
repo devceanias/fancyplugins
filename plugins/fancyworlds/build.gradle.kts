@@ -51,16 +51,18 @@ dependencies {
 
 tasks {
     runServer {
-        minecraftVersion("1.21.11")
+        minecraftVersion("26.1.2")
 
         downloadPlugins {
-            modrinth("fancydialogs", "1.1.2")
+            modrinth("FancyDialogs", "1.1.2.53")
+//            modrinth("FancyNpcs", "2.9.2")
+//            modrinth("FancyHolograms", "2.9.1")
+//            modrinth("FancyDialogs", "1.1.2")
+//            modrinth("FancyEconomy", "1.0.3+6")
 
-            modrinth("fancynpcs", "2.9.2")
-            modrinth("fancyholograms", "2.9.1")
-//            hangar("ViaVersion", "5.3.2")
-//            hangar("ViaBackwards", "5.3.2")
 //            hangar("PlaceholderAPI", "2.11.6")
+//            hangar("ViaVersion", "5.8.1")
+//            hangar("ViaBackwards", "5.8.1")
         }
     }
 
@@ -73,7 +75,7 @@ tasks {
 
     compileJava {
         options.encoding = Charsets.UTF_8.name() // We want UTF-8 for everything
-        options.release = 21
+        options.release = 25
         // For cloud-annotations, see https://cloud.incendo.org/annotations/#command-components
         options.compilerArgs.add("-parameters")
     }
@@ -106,7 +108,7 @@ tasks {
 }
 
 java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(21))
+    toolchain.languageVersion.set(JavaLanguageVersion.of(25))
 }
 
 val gitCommitHash: Provider<String> = providers.exec {

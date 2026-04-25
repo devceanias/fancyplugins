@@ -25,7 +25,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           distribution: 'adopt'
-          java-version: '21'
+          java-version: '25'
 
       - name: Modify gradlew permissions
         run: chmod +x ./gradlew
@@ -35,6 +35,9 @@ jobs:
 
       - name: Build FancyNpcs
         run: ./gradlew :plugins:fancynpcs:shadowJar
+
+      - name: Build FancyNpcsModel
+        run: ./gradlew :plugins:fancynpcs-model:shadowJar
 
       - name: Build FancyHolograms v2
         run: ./gradlew :plugins:fancyholograms-v2:shadowJar
@@ -47,6 +50,9 @@ jobs:
 
       - name: Build FancyWorlds
         run: ./gradlew :plugins:fancyworlds:shadowJar
+
+      - name: Build FancyEconomy
+        run: ./gradlew :plugins:fancyeconomy:shadowJar
 
       - name: Build FancyVisuals
         run: ./gradlew :plugins:fancyvisuals:shadowJar
@@ -70,7 +76,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           distribution: 'adopt'
-          java-version: '21'
+          java-version: '25'
 
       - name: Modify gradlew permissions
         run: chmod +x ./gradlew
@@ -106,7 +112,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           distribution: 'adopt'
-          java-version: '21'
+          java-version: '25'
 
       - name: Modify gradlew permissions
         run: chmod +x ./gradlew
@@ -133,7 +139,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           distribution: 'adopt'
-          java-version: '21'
+          java-version: '25'
 
       - name: Modify gradlew permissions
         run: chmod +x ./gradlew

@@ -16,12 +16,7 @@ allprojects {
     description = "Simple, lightweight and fast NPC plugin using packets"
 
     repositories {
-        mavenLocal()
-        mavenCentral()
-        maven(url = "https://repo.papermc.io/repository/maven-public/")
-        maven(url = "https://repo.fancyinnovations.com/releases")
-        maven(url = "https://repo.lushplugins.org/releases")
-        maven(url = "https://repo.inventivetalent.org/repository/maven-snapshots/") // for cloud command framework
+        maven(url = "https://repo.inventivetalent.org/repository/maven-snapshots/") // for MineSkin
         maven(url = "https://repo.extendedclip.com/releases/") // for PlaceholderAPI
         maven(url = "https://maven.enginehub.org/repo/") // for WorldEdit
         maven(url = "https://maven.citizensnpcs.co/repo") // for Citizens
@@ -32,13 +27,13 @@ dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
 
     implementation(project(":plugins:fancynpcs-v2:fn-v2-api"))
-    implementation(project(":plugins:fancynpcs-v2:implementation_26_1"))
+    implementation(project(":plugins:fancynpcs-v2:implementation_26_2"))
+    implementation(project(":plugins:fancynpcs-v2:implementation_26_1_1"))
     implementation(project(":plugins:fancynpcs-v2:implementation_1_21_11"))
     implementation(project(":plugins:fancynpcs-v2:implementation_1_21_9"))
     implementation(project(":plugins:fancynpcs-v2:implementation_1_21_6"))
     implementation(project(":plugins:fancynpcs-v2:implementation_1_21_5"))
     implementation(project(":plugins:fancynpcs-v2:implementation_1_21_4"))
-    implementation(project(":plugins:fancynpcs-v2:implementation_1_21_3"))
 
     rootProject.subprojects
         .filter { it.path.startsWith(":libraries:packets:implementations") }
@@ -54,15 +49,15 @@ dependencies {
     implementation("de.oliver.FancyAnalytics:mc-api:0.1.13")
     implementation("de.oliver.FancyAnalytics:logger:0.0.8")
     implementation("org.incendo:cloud-core:2.0.0")
-    implementation("org.incendo:cloud-paper:2.0.0-beta.13")
+    implementation("org.incendo:cloud-paper:2.0.0-SNAPSHOT")
     implementation("org.incendo:cloud-annotations:2.0.0")
     annotationProcessor("org.incendo:cloud-annotations:2.0.0")
     implementation("org.mineskin:java-client-jsoup:3.0.3-SNAPSHOT")
 
     compileOnly("me.clip:placeholderapi:2.12.2")
-    compileOnly("com.intellectualsites.plotsquared:plotsquared-core:7.5.11")
-    compileOnly("com.sk89q.worldedit:worldedit-bukkit:7.3.17")
-    compileOnly("net.citizensnpcs:citizens-main:2.0.41-SNAPSHOT") {
+    compileOnly("com.intellectualsites.plotsquared:plotsquared-core:7.5.12")
+    compileOnly("com.sk89q.worldedit:worldedit-bukkit:7.4.0")
+    compileOnly("net.citizensnpcs:citizens-main:2.0.42-SNAPSHOT") {
         exclude(group = "*", module = "*")
     }
 }
@@ -98,14 +93,22 @@ paper {
 
 tasks {
     runServer {
-        minecraftVersion("1.21.11")
+        minecraftVersion("26.1.2")
+//        minecraftVersion("26.2-snapshot-1")
+//        serverJar(file("/Users/oliver/Workspace/paper/paper-server/build/libs/paper-bundler-26.2-snapshot-1.build.2-alpha.jar"))
+
 
         downloadPlugins {
-            hangar("kite", "1.2.4+12")
-            hangar("ViaVersion", "5.7.1")
-            hangar("ViaBackwards", "5.7.1")
+//            url("https://fancyspaces.net/api/v1/spaces/s1gGcHj5/versions/A364LHvu/files/FancyWorlds-0.0.4.jar")
+//            modrinth("FancyHolograms", "2.9.1")
+//            modrinth("FancyDialogs", "1.1.2")
+//            modrinth("FancyEconomy", "1.0.3+6")
+
+//            modrinth("kite", "1.4.0")
 //            hangar("PlaceholderAPI", "2.11.6")
-//            modrinth("multiverse-core", "5.0.2")
+//            hangar("ViaVersion", "5.8.1")
+//            hangar("ViaBackwards", "5.8.1")
+//            url("https://ci.citizensnpcs.co/job/citizens2/4138/artifact/dist/target/Citizens-2.0.41-b4138.jar")
         }
     }
 
@@ -151,7 +154,7 @@ tasks {
 
     compileJava {
         options.encoding = Charsets.UTF_8.name() // We want UTF-8 for everything
-        options.release = 21
+        options.release = 25
         // For cloud-annotations, see https://cloud.incendo.org/annotations/#command-components
         options.compilerArgs.add("-parameters")
     }
@@ -184,7 +187,7 @@ tasks {
 }
 
 java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(21))
+    toolchain.languageVersion.set(JavaLanguageVersion.of(25))
 }
 
 val gitCommitHash: Provider<String> = providers.exec {

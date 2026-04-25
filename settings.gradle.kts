@@ -1,10 +1,13 @@
 pluginManagement {
     repositories {
         mavenLocal()
+        maven(url = "https://artifactory.papermc.io/artifactory/snapshots")
+//        maven(url = "https://artifactory.papermc.io/artifactory/releases")
         maven(url = "https://maven.fancyspaces.net/fancyinnovations/snapshots")
         maven(url = "https://maven.fancyspaces.net/fancyinnovations/releases")
         maven(url = "https://repo.fancyinnovations.com/releases")
         gradlePluginPortal()
+        mavenLocal()
     }
 }
 
@@ -14,18 +17,20 @@ plugins {
 
 rootProject.name = "minecraft-plugins"
 
-include(":plugins:fancynpcs-v2:")
+include(":plugins:fancynpcs-v2")
 include(":plugins:fancynpcs-v2:fn-v2-api")
-include(":plugins:fancynpcs-v2:implementation_26_1")
+include(":plugins:fancynpcs-v2:implementation_26_2")
+include(":plugins:fancynpcs-v2:implementation_26_1_1")
 include(":plugins:fancynpcs-v2:implementation_1_21_11")
 include(":plugins:fancynpcs-v2:implementation_1_21_9")
 include(":plugins:fancynpcs-v2:implementation_1_21_6")
 include(":plugins:fancynpcs-v2:implementation_1_21_5")
 include(":plugins:fancynpcs-v2:implementation_1_21_4")
-include(":plugins:fancynpcs-v2:implementation_1_21_3")
 
-include(":plugins:fancynpcs:")
+include(":plugins:fancynpcs")
 include(":plugins:fancynpcs:fn-api")
+
+include(":plugins:fancynpcs-model")
 
 include(":plugins:fancyholograms-v2")
 include(":plugins:fancyholograms-v2:api")
@@ -41,6 +46,8 @@ include(":plugins:fancydialogs:fd-api")
 include(":plugins:fancyworlds")
 include(":plugins:fancyworlds:fw-api")
 
+include(":plugins:fancyeconomy")
+
 include(":libraries:common")
 include(":libraries:jdb")
 include(":libraries:config")
@@ -49,12 +56,12 @@ include(":libraries:plugin-tests")
 include(":libraries:packets")
 include(":libraries:packets:packets-api")
 include(":libraries:packets:test-plugin")
-include(":libraries:packets:implementations:1_21_3")
 include(":libraries:packets:implementations:1_21_4")
 include(":libraries:packets:implementations:1_21_5")
 include(":libraries:packets:implementations:1_21_6")
 include(":libraries:packets:implementations:1_21_9")
 include(":libraries:packets:implementations:1_21_11")
-include(":libraries:packets:implementations:26_1")
+include(":libraries:packets:implementations:26_1_1")
+include(":libraries:packets:implementations:26_2")
 
 include(":tools:quick-e2e")

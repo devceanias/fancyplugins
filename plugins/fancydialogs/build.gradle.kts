@@ -18,15 +18,7 @@ allprojects {
     description = "Simple, lightweight and fast dialog plugin using the new dialog feature"
 
     repositories {
-        mavenLocal()
-        mavenCentral()
-
-        maven(url = "https://repo.papermc.io/repository/maven-public/")
-        maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
-
-        maven(url = "https://repo.fancyinnovations.com/snapshots")
-        maven(url = "https://repo.fancyinnovations.com/releases")
-        maven(url = "https://repo.lushplugins.org/releases")
+        maven(url = "https://s01.oss.sonatype.org/content/repositories/snapshots/")
         maven(url = "https://repo.viaversion.com/")
         maven(url = "https://repo.opencollab.dev/main/")
     }
@@ -85,14 +77,18 @@ paper {
 
 tasks {
     runServer {
-        minecraftVersion("1.21.11")
+        minecraftVersion("26.1.2")
+//        serverJar(file("../../libraries/paper-server/paper-bundler-26.1.2-R0.1-SNAPSHOT.jar"))
 
         downloadPlugins {
-//            modrinth("fancynpcs", "2.8.0")
-//            hangar("ViaVersion", "5.3.2")
-//            hangar("ViaBackwards", "5.3.2")
-//            modrinth("multiverse-core", "4.3.11")
+//            url("https://fancyspaces.net/api/v1/spaces/s1gGcHj5/versions/A364LHvu/files/FancyWorlds-0.0.4.jar")
+//            modrinth("FancyNpcs", "2.9.2")
+//            modrinth("FancyHolograms", "2.9.1")
+//            modrinth("FancyEconomy", "1.0.3+6")
+
 //            hangar("PlaceholderAPI", "2.11.6")
+//            hangar("ViaVersion", "5.8.1")
+//            hangar("ViaBackwards", "5.8.1")
         }
     }
 
@@ -105,7 +101,7 @@ tasks {
 
     compileJava {
         options.encoding = Charsets.UTF_8.name() // We want UTF-8 for everything
-        options.release = 21
+        options.release = 25
         // For cloud-annotations, see https://cloud.incendo.org/annotations/#command-components
         options.compilerArgs.add("-parameters")
     }
@@ -138,7 +134,7 @@ tasks {
 }
 
 java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(21))
+    toolchain.languageVersion.set(JavaLanguageVersion.of(25))
 }
 
 val gitCommitHash: Provider<String> = providers.exec {

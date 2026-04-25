@@ -18,15 +18,7 @@ allprojects {
     description = "Simple, lightweight and fast hologram plugin using display entities"
 
     repositories {
-        mavenLocal()
-        mavenCentral()
-
-        maven(url = "https://repo.papermc.io/repository/maven-public/")
-        maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
-
-        maven(url = "https://repo.fancyinnovations.com/snapshots")
-        maven(url = "https://repo.fancyinnovations.com/releases")
-        maven(url = "https://repo.lushplugins.org/releases")
+        maven(url = "https://s01.oss.sonatype.org/content/repositories/snapshots/")
         maven(url = "https://repo.viaversion.com/")
         maven(url = "https://repo.opencollab.dev/main/")
     }
@@ -104,11 +96,14 @@ tasks {
         minecraftVersion("1.21.11")
 
         downloadPlugins {
-            modrinth("fancynpcs", "2.9.2")
-//            hangar("ViaVersion", "5.3.2")
-//            hangar("ViaBackwards", "5.3.2")
-            modrinth("multiverse-core", "5.5.2")
-            hangar("PlaceholderAPI", "2.11.6")
+            //url("https://fancyspaces.net/api/v1/spaces/s1gGcHj5/versions/A364LHvu/files/FancyWorlds-0.0.4.jar")
+            modrinth("FancyNpcs", "2.9.2")
+            modrinth("FancyDialogs", "1.1.2")
+            modrinth("FancyEconomy", "1.0.3+6")
+
+//            hangar("PlaceholderAPI", "2.11.6")
+//            hangar("ViaVersion", "5.8.1")
+//            hangar("ViaBackwards", "5.8.1")
 //            modrinth("DecentHolograms", "2.8.12")
         }
     }
@@ -122,7 +117,7 @@ tasks {
 
     compileJava {
         options.encoding = Charsets.UTF_8.name() // We want UTF-8 for everything
-        options.release = 21
+        options.release = 25
         // For cloud-annotations, see https://cloud.incendo.org/annotations/#command-components
         options.compilerArgs.add("-parameters")
     }
@@ -151,7 +146,7 @@ tasks {
 }
 
 java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(21))
+    toolchain.languageVersion.set(JavaLanguageVersion.of(25))
 }
 
 fun getCurrentCommitHash(): String {
