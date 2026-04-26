@@ -1,0 +1,30 @@
+name: Deploy FancyHolograms v2 (GitHub)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '25'
+
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+
+      - name: Build plugin
+        run: ./gradlew :plugins:fancyholograms-v2:shadowJar
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: FancyHolograms-v2
+          path: plugins/fancyholograms-v2/build/libs/*.jar
