@@ -201,7 +201,9 @@ public abstract class Hologram {
      * Forcefully updates and refreshes hologram for players.
      */
     public final void forceUpdate() {
+        clearTextCache();
         update();
+        refreshForViewersInWorld();
     }
 
     /**
