@@ -19,6 +19,7 @@ import org.lushplugins.chatcolorhandler.paper.PaperColor;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;
+import java.util.function.UnaryOperator;
 
 /**
  * Abstract base class for creating, updating, and managing holograms.
@@ -33,6 +34,10 @@ import java.util.concurrent.TimeUnit;
  * A Hologram object includes data about the hologram and maintains a set of players to whom the hologram is shown.
  */
 public abstract class Hologram {
+    private static final Cache<String, Component> components = CacheBuilder.newBuilder()
+        .expireAfterAccess(5, TimeUnit.MINUTES)
+        .maximumSize(10_000)
+        .build();
 
     public static final int LINE_WIDTH = 1000;
     public static final Color TRANSPARENT = Color.fromARGB(0);
@@ -43,11 +48,6 @@ public abstract class Hologram {
      * Set of UUIDs of players to whom the hologram is currently shown.
      */
     protected final @NotNull Set<UUID> viewers = new HashSet<>();
-    private static final UUID NULL_PLAYER_KEY = new UUID(0L, 0L);
-    private final Cache<UUID, Component> cachedTextPerPlayer = CacheBuilder.newBuilder()
-            .expireAfterWrite(1, TimeUnit.SECONDS)
-            .maximumSize(512)
-            .build();
     private String lastRawText = "";
 
     protected Hologram(@NotNull final HologramData data) {
@@ -378,20 +378,22 @@ public abstract class Hologram {
             return MiniMessage.miniMessage().deserialize(rawText);
         }
 
-        final UUID cacheKey = player != null ? player.getUniqueId() : NULL_PLAYER_KEY;
-        final Component cached = cachedTextPerPlayer.getIfPresent(cacheKey);
+        final String translated = PaperColor.handler().translateRaw(rawText, player, UnaryOperator.identity());
+        final Component cached = components.getIfPresent(translated);
+
         if (cached != null) {
             return cached;
         }
 
-        final Component translated = PaperColor.handler().translate(rawText, player);
-        cachedTextPerPlayer.put(cacheKey, translated);
-        return translated;
+        final Component component = MiniMessage.miniMessage().deserialize(translated);
+
+        components.put(translated, component);
+
+        return component;
     }
 
     @ApiStatus.Internal
     public void clearTextCache() {
-        cachedTextPerPlayer.invalidateAll();
         lastRawText = "";
     }
 

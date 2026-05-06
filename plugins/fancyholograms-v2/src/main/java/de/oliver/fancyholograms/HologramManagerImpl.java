@@ -232,7 +232,6 @@ public final class HologramManagerImpl implements HologramManager {
                     }
 
                     hologram.forceUpdate();
-                    hologram.refreshForViewersInWorld();
                     data.setHasChanges(false);
 
                     if (data instanceof TextHologramData) {
