@@ -23,4 +23,15 @@ allprojects {
         maven(url = "https://repo.papermc.io/repository/maven-public/")
 //        maven(url = "https://jitpack.io")
     }
+
+    repositories.configureEach {
+        if (this is MavenArtifactRepository &&
+            url.toString().contains("maven.fancyspaces.net")
+        ) {
+
+            content {
+                includeGroup("de.oliver.FancyAnalytics")
+            }
+        }
+    }
 }
