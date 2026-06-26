@@ -9,11 +9,11 @@ version = findProperty("plugintestsVersion") as String
 description = "Library for defining and running tests in a Minecraft server environment"
 
 java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(25))
+    toolchain.languageVersion.set(JavaLanguageVersion.of(21))
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:26.1.2.build.+")
+    compileOnly("io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
     compileOnly("com.google.code.gson:gson:2.13.2")
     implementation("org.jetbrains:annotations:26.1.0")
 
@@ -103,7 +103,7 @@ tasks {
 
         // Set the release flag. This configures what version bytecode the compiler will emit, as well as what JDK APIs are usable.
         // See https://openjdk.java.net/jeps/247 for more information.
-        options.release.set(25)
+        options.release.set(21)
     }
 
     java {

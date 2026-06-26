@@ -19,9 +19,6 @@ rootProject.name = "minecraft-plugins"
 
 include(":plugins:fancynpcs-v2")
 include(":plugins:fancynpcs-v2:fn-v2-api")
-include(":plugins:fancynpcs-v2:implementation_26_3")
-include(":plugins:fancynpcs-v2:implementation_26_2")
-include(":plugins:fancynpcs-v2:implementation_26_1_2")
 include(":plugins:fancynpcs-v2:implementation_1_21_11")
 include(":plugins:fancynpcs-v2:implementation_1_21_9")
 include(":plugins:fancynpcs-v2:implementation_1_21_6")
@@ -60,8 +57,5 @@ include(":libraries:packets:implementations:1_21_5")
 include(":libraries:packets:implementations:1_21_6")
 include(":libraries:packets:implementations:1_21_9")
 include(":libraries:packets:implementations:1_21_11")
-include(":libraries:packets:implementations:26_1_2")
-include(":libraries:packets:implementations:26_2")
-include(":libraries:packets:implementations:26_3")
 
 include(":tools:quick-e2e")

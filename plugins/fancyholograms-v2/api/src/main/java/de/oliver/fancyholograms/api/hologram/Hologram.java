@@ -373,10 +373,6 @@ public abstract class Hologram {
             lastRawText = rawText;
         }
 
-        if (Bukkit.isStopping()) {
-            return MiniMessage.miniMessage().deserialize(rawText);
-        }
-
         final String translated = PaperColor.handler().translateRaw(rawText, player, UnaryOperator.identity());
         final Component cached = components.getIfPresent(translated);
 

@@ -8,7 +8,7 @@ group = "de.oliver"
 description = "Library for plugin configuration"
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:26.1.2.build.+")
+    compileOnly("io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
     compileOnly("de.oliver.FancyAnalytics:logger:0.0.10")
     compileOnly("org.jetbrains:annotations:26.1.0")
 
@@ -94,7 +94,7 @@ tasks {
 
     compileJava {
         options.encoding = Charsets.UTF_8.name()
-        options.release.set(25)
+        options.release.set(21)
     }
 
     java {
@@ -115,7 +115,7 @@ tasks {
 }
 
 java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(25))
+    toolchain.languageVersion.set(JavaLanguageVersion.of(21))
 }
 
 fun getCFGVersion(): String {

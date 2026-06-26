@@ -7,6 +7,8 @@ paperweight.reobfArtifactConfiguration = io.papermc.paperweight.userdev.ReobfArt
 
 dependencies {
     paperweight.paperDevBundle("1.21.11-R0.1-SNAPSHOT")
+
+    compileOnly("net.kyori:adventure-text-serializer-ansi:4.26.1")
     compileOnly(project(":libraries:packets:packets-api"))
 
     testImplementation(project(":libraries:packets"))
@@ -17,7 +19,7 @@ dependencies {
 }
 
 java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(25))
+    toolchain.languageVersion.set(JavaLanguageVersion.of(21))
 }
 
 tasks {

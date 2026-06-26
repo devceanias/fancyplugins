@@ -4,7 +4,7 @@ plugins {
 }
 
 dependencies {
-    paperweight.paperDevBundle("26.1.2.build.+")
+    paperweight.paperDevBundle("1.21.11-R0.1-SNAPSHOT")
 
     compileOnly(project(":plugins:fancynpcs-v2:fn-v2-api"))
     compileOnly(project(":libraries:common"))
@@ -19,6 +19,6 @@ tasks {
 
     compileJava {
         options.encoding = Charsets.UTF_8.name()
-        options.release = 25
+        options.release = 21
     }
 }

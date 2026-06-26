@@ -9,7 +9,7 @@ version = getJDBVersion()
 description = "Library for storing JSON data locally"
 
 java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(25))
+    toolchain.languageVersion.set(JavaLanguageVersion.of(21))
 }
 
 dependencies {
@@ -102,7 +102,7 @@ tasks {
 
         // Set the release flag. This configures what version bytecode the compiler will emit, as well as what JDK APIs are usable.
         // See https://openjdk.java.net/jeps/247 for more information.
-        options.release.set(25)
+        options.release.set(21)
     }
 
     java {

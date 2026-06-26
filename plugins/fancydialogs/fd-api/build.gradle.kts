@@ -5,7 +5,7 @@ plugins {
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:26.1.2.build.+")
+    compileOnly("io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
 
     compileOnly(project(":libraries:common"))
     compileOnly("de.oliver.FancyAnalytics:logger:0.0.10")
@@ -108,7 +108,7 @@ tasks {
     compileJava {
         options.encoding = Charsets.UTF_8.name()
 
-        options.release.set(25)
+        options.release.set(21)
     }
 }
 

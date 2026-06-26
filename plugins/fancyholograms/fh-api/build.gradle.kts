@@ -5,7 +5,7 @@ plugins {
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:26.1.2.build.+")
+    compileOnly("io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
 
     compileOnly(project(":libraries:common"))
     compileOnly(project(":libraries:jdb"))
@@ -107,7 +107,7 @@ tasks {
     compileJava {
         options.encoding = Charsets.UTF_8.name()
 
-        options.release.set(25)
+        options.release.set(21)
     }
 }
 
