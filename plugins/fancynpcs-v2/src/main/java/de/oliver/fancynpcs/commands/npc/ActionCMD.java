@@ -327,14 +327,12 @@ public enum ActionCMD {
         }
 
         translator.translate("npc_action_list_header")
-                .withPrefix()
                 .replaceStripped("trigger", trigger.name())
                 .send(sender);
 
         for (int i = 0; i < actions.size(); i++) {
             NpcAction.NpcActionData action = actions.get(i);
             translator.translate("npc_action_list_entry")
-                    .withPrefix()
                     .replaceStripped("number", String.valueOf(action.order()))
                     .replaceStripped("action", action.action().getName())
                     .replaceStripped("value", action.value() != null ? action.value() : "")
@@ -342,7 +340,6 @@ public enum ActionCMD {
         }
 
         translator.translate("npc_action_list_footer")
-                .withPrefix()
                 .replaceStripped("total", String.valueOf(actions.size()))
                 .send(sender);
     }

@@ -1,23 +1,24 @@
 language_name: default
 messages:
-  color_black: "Black"
-  color_dark_blue: "Dark Blue"
-  color_dark_green: "Dark Green"
-  color_dark_aqua: "Dark Aqua"
-  color_dark_red: "Dark Red"
-  color_dark_purple: "Dark Purple"
-  color_gold: "Gold"
-  color_gray: "Gray"
-  color_dark_gray: "Dark Gray"
-  color_blue: "Blue"
-  color_green: "Green"
-  color_aqua: "Aqua"
-  color_red: "Red"
-  color_light_purple: "Light Purple"
-  color_yellow: "Yellow"
-  color_white: "White"
-
   common:
+    colors:
+      black: "Black"
+      dark_blue: "Dark Blue"
+      dark_green: "Dark Green"
+      dark_aqua: "Dark Aqua"
+      dark_red: "Dark Red"
+      dark_purple: "Dark Purple"
+      gold: "Gold"
+      gray: "Gray"
+      dark_gray: "Dark Gray"
+      blue: "Blue"
+      green: "Green"
+      aqua: "Aqua"
+      red: "Red"
+      light_purple: "Light Purple"
+      yellow: "Yellow"
+      white: "White"
+    invalid_duration: "{errorColor}Invalid duration {primaryColor}{duration}{errorColor}. Please use a valid format (e.g. 1s, 500ms, 15m30s)."
     hologram:
       not_found: "{errorColor}Could not find hologram {primaryColor}{name}{secondaryColor}."
       invalid_type: "{errorColor}This command can only be executed on holograms of the following types: {primaryColor}{types}{secondaryColor}."
@@ -60,3 +61,23 @@ messages:
           disabled: "Disabled glowing for hologram {primaryColor}{hologram}{secondaryColor}."
           enabled: "Enabled glowing with color {primaryColor}{color}{secondaryColor} for hologram {primaryColor}{hologram}{secondaryColor}."
           color_set: "Set glowing color to {primaryColor}{color}{secondaryColor} for hologram {primaryColor}{hologram}{secondaryColor}."
+        update_text_interval:
+          already_set: "{errorColor}Hologram {primaryColor}{hologram}{errorColor} already has this interval ({interval}) set."
+          updated: "Updated the text update interval to {primaryColor}{interval}{secondaryColor} for hologram {primaryColor}{hologram}{secondaryColor}."
+          short_interval_warning: "{warningColor}Warning: Setting a very short text update interval (less than 1s) may cause high CPU usage and cause client lag due to frequent hologram updates."
+          disabled: "Disabled the text update interval for hologram {primaryColor}{hologram}{secondaryColor}."
+        background:
+          already_set: "{errorColor}Hologram {primaryColor}{hologram}{errorColor} already has this background ({color}) set."
+          updated: "Updated the background to {primaryColor}{color}{secondaryColor} for hologram {primaryColor}{hologram}{secondaryColor}."
+        billboard:
+          already_set: "{errorColor}Hologram {primaryColor}{hologram}{errorColor} already has this billboard ({billboard}) set."
+          updated: "Updated the billboard to {primaryColor}{billboard}{secondaryColor} for hologram {primaryColor}{hologram}{secondaryColor}."
+        block:
+          not_a_block: "{errorColor}Material {primaryColor}{material}{errorColor} is not a valid block."
+          already_set: "{errorColor}Hologram {primaryColor}{hologram}{errorColor} already has this block ({material}) set."
+          updated: "Updated the block to {primaryColor}{material}{secondaryColor} for hologram {primaryColor}{hologram}{secondaryColor}."
+        brightness:
+          already_set: "{errorColor}Hologram {primaryColor}{hologram}{errorColor} already has this brightness ({brightness}) set."
+          updated: "Updated the brightness to {primaryColor}{brightness}{secondaryColor} for hologram {primaryColor}{hologram}{secondaryColor}."
+        position:
+          updated: "Updated the position to {primaryColor}({x}, {y}, {z}){secondaryColor} for hologram {primaryColor}{hologram}{secondaryColor}."

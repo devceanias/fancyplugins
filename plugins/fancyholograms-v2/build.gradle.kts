@@ -25,7 +25,7 @@ allprojects {
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:26.1.2.build.+")
 
     implementation(project(":plugins:fancyholograms-v2:api"))
 
@@ -39,10 +39,10 @@ dependencies {
     implementation(project(":libraries:config"))
     implementation("de.oliver.FancyAnalytics:java-sdk:0.0.6")
     implementation("de.oliver.FancyAnalytics:mc-api:0.1.13")
-    implementation("de.oliver.FancyAnalytics:logger:0.0.8")
+    implementation("de.oliver.FancyAnalytics:logger:0.0.10")
 
     compileOnly(project(":plugins:fancynpcs-v2:fn-v2-api"))
-    compileOnly("org.lushplugins.chatcolorhandler:paper:8.1.0")
+    compileOnly("org.lushplugins.chatcolorhandler:paper:8.1.1")
     compileOnly("org.geysermc.floodgate:api:2.2.4-SNAPSHOT")
 }
 
@@ -79,7 +79,8 @@ paper {
 
 tasks {
     runServer {
-        minecraftVersion("26.1.2")
+        minecraftVersion("26.2")
+        //serverJar(file("/Users/oliver/Workspace/paper/paper-server/build/libs/paper-bundler-26.2.build.1-alpha.jar"))
 
         downloadPlugins {
 //            url("https://fancyspaces.net/api/v1/spaces/s1gGcHj5/versions/A364LHvu/files/FancyWorlds-0.0.4.jar")

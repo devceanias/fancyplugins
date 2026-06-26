@@ -95,9 +95,10 @@ messages:
   command_unsupported_npc_type: "{errorColor}This NPC type does not support this feature."
   command_input_contains_blocked_command: "{errorColor}This command is not allowed for use in interactions."
   command_npc_modification_cancelled: "{errorColor}NPC modification has been cancelled by the API."
+  command_unexpected_exception: "{errorColor}An unexpected error occurred! Check the console for more details."
 
   # Generic Syntax Message (syntax is provided by Cloud and may not be human-friendly)
-  command_invalid_syntax_generic: "Syntax: {primaryColor}/{syntax}"
+  command_invalid_syntax_generic: "{errorColor}Syntax: {primaryColor}/{syntax}"
 
   # Command Syntaxes
   command_syntax:
@@ -199,7 +200,7 @@ messages:
   npc_action_add_success: "Action has been added. There are {primaryColor}{total}{secondaryColor} actions in total."
   npc_action_add_before_success: "Action has been added before action {primaryColor}{number}{secondaryColor}. There are {primaryColor}{total}{secondaryColor} actions in total."
   npc_action_add_after_success: "Action has been added after action {primaryColor}{number}{secondaryColor}. There are {primaryColor}{total}{secondaryColor} actions in total."
-  npc_action_add_op_warning: "{warningColor}<b>ATTENTION:</b> {secondaryColor}The “player_command_as_op” action is deprecated, because it temporarily grants operator status to a player during command execution. This poses a security risk and should not be used. Please use the “player_command” action and ensure that the player has necessary permissions to execute the command without operator status. If you have existing NPCs using the “player_command_as_op” action, change them to “player_command” as soon as possible to avoid potential security vulnerabilities. The ”player_command_as_op” action will be removed in a future update."
+  npc_action_add_op_warning: "{warningColor}<b>ATTENTION:</b> {secondaryColor}The “player_command_as_op” action got removed, because it temporarily grants operator status to a player during command execution. This poses a security risk and should not be used. Please use the “player_command” action and ensure that the player has necessary permissions to execute the command without operator status. If you have existing NPCs using the “player_command_as_op” action, change them to “player_command” as soon as possible to avoid potential security vulnerabilities. The ”player_command_as_op” action will no longer work."
   npc_action_set_success: "Action trigger {primaryColor}{number}{secondaryColor} has been updated. There are {primaryColor}{total}{secondaryColor} actions in total."
   npc_action_set_failure: "{errorColor}Action trigger {primaryColor}{number}{errorColor} does not exist."
   npc_action_move_up_success: "Action trigger {primaryColor}{number}{secondaryColor} has been moved up."

@@ -23,7 +23,7 @@ allprojects {
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:26.1.2.build.+")
 
     implementation(project(":plugins:fancynpcs:fn-api"))
 
@@ -36,10 +36,10 @@ dependencies {
     implementation(project(":libraries:jdb"))
     implementation(project(":libraries:plugin-tests"))
     implementation(project(":libraries:config"))
-    compileOnly("org.lushplugins.chatcolorhandler:paper:8.1.0")
+    compileOnly("org.lushplugins.chatcolorhandler:paper:8.1.1")
     implementation("de.oliver.FancyAnalytics:java-sdk:0.0.6")
     implementation("de.oliver.FancyAnalytics:mc-api:0.1.13")
-    implementation("de.oliver.FancyAnalytics:logger:0.0.8")
+    implementation("de.oliver.FancyAnalytics:logger:0.0.10")
     implementation("org.incendo:cloud-core:2.0.0")
     implementation("org.incendo:cloud-paper:2.0.0-beta.13")
     implementation("org.incendo:cloud-annotations:2.0.0")
@@ -47,7 +47,7 @@ dependencies {
     implementation("org.mineskin:java-client-jsoup:3.0.3-SNAPSHOT")
 
     compileOnly("me.clip:placeholderapi:2.12.2")
-    compileOnly("com.intellectualsites.plotsquared:plotsquared-core:7.5.11")
+    compileOnly("com.intellectualsites.plotsquared:plotsquared-core:7.5.13")
     compileOnly("com.sk89q.worldedit:worldedit-bukkit:7.3.17")
 }
 

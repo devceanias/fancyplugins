@@ -18,7 +18,7 @@ dependencies {
     compileOnly("io.papermc.paper:paper-api:26.1.2.build.+")
 
     compileOnly(project(":plugins:fancynpcs-v2:fn-v2-api"))
-    compileOnly("io.github.toxicity188:bettermodel-bukkit-api:3.0.1")
+    compileOnly("io.github.toxicity188:bettermodel-bukkit-api:3.2.0")
 
     implementation(project(":libraries:common"))
     implementation(project(":libraries:jdb"))
@@ -28,7 +28,7 @@ dependencies {
     implementation("de.oliver.FancyAnalytics:logger:0.0.10")
 
     compileOnly("org.incendo:cloud-core:2.0.0")
-    compileOnly("org.incendo:cloud-paper:2.0.0-SNAPSHOT")
+    compileOnly("org.incendo:cloud-paper:2.0.0-beta.16")
     compileOnly("org.incendo:cloud-annotations:2.0.0")
     annotationProcessor("org.incendo:cloud-annotations:2.0.0")
 
@@ -37,11 +37,12 @@ dependencies {
 
 tasks {
     runServer {
-        minecraftVersion("26.1.2")
+        minecraftVersion("26.2")
+        //serverJar(file("/Users/oliver/Workspace/paper/paper-server/build/libs/paper-bundler-26.2.build.1-alpha.jar"))
 
         downloadPlugins {
-            //modrinth("FancyNpcs", "2.10.0.356")
-            modrinth("BetterModel", "6Xn5O444") // 3.0.2-SNAPSHOT-491
+            modrinth("FancyNpcs", "2.11.0")
+            modrinth("BetterModel", "8xoSUfzr") // 3.2.0
 //            modrinth("FancyDialogs", "1.1.2.53")
 //            modrinth("FancyHolograms", "2.9.1")
 //            modrinth("FancyDialogs", "1.1.2")

@@ -8,13 +8,13 @@ group = "de.oliver"
 description = "Library for plugin configuration"
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.20-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:26.1.2.build.+")
     compileOnly("de.oliver.FancyAnalytics:logger:0.0.10")
     compileOnly("org.jetbrains:annotations:26.1.0")
 
-    testImplementation("org.junit.jupiter:junit-jupiter-api:6.0.3")
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:6.0.3")
-    testImplementation("org.junit.platform:junit-platform-console-standalone:6.0.3")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:6.1.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:6.1.0")
+    testImplementation("org.junit.platform:junit-platform-console-standalone:6.1.0")
 }
 
 tasks {
@@ -94,7 +94,7 @@ tasks {
 
     compileJava {
         options.encoding = Charsets.UTF_8.name()
-        options.release.set(17) //TODO change to 21, once 1.19.4 support is dropped
+        options.release.set(25)
     }
 
     java {
@@ -115,7 +115,7 @@ tasks {
 }
 
 java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(17)) //TODO change to 21, once 1.19.4 support is dropped
+    toolchain.languageVersion.set(JavaLanguageVersion.of(25))
 }
 
 fun getCFGVersion(): String {

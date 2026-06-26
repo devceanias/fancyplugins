@@ -4,15 +4,13 @@ plugins {
     id("com.gradleup.shadow")
 }
 
-val minecraftVersion = "1.20"
-
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:$minecraftVersion-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:26.1.2.build.+")
 
     compileOnly(project(":libraries:common"))
     compileOnly("de.oliver.FancyAnalytics:logger:0.0.10")
 
-    implementation("org.lushplugins.chatcolorhandler:paper:8.1.0")
+    implementation("org.lushplugins.chatcolorhandler:paper:8.1.1")
 }
 
 tasks {
@@ -108,7 +106,7 @@ tasks {
     compileJava {
         options.encoding = Charsets.UTF_8.name()
 
-        options.release.set(21)
+        options.release.set(25)
     }
 }
 

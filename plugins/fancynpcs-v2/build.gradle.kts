@@ -24,16 +24,16 @@ allprojects {
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:26.1.2.build.+")
 
     implementation(project(":plugins:fancynpcs-v2:fn-v2-api"))
+    implementation(project(":plugins:fancynpcs-v2:implementation_26_3"))
     implementation(project(":plugins:fancynpcs-v2:implementation_26_2"))
-    implementation(project(":plugins:fancynpcs-v2:implementation_26_1_1"))
+    implementation(project(":plugins:fancynpcs-v2:implementation_26_1_2"))
     implementation(project(":plugins:fancynpcs-v2:implementation_1_21_11"))
     implementation(project(":plugins:fancynpcs-v2:implementation_1_21_9"))
     implementation(project(":plugins:fancynpcs-v2:implementation_1_21_6"))
     implementation(project(":plugins:fancynpcs-v2:implementation_1_21_5"))
-    implementation(project(":plugins:fancynpcs-v2:implementation_1_21_4"))
 
     rootProject.subprojects
         .filter { it.path.startsWith(":libraries:packets:implementations") }
@@ -44,19 +44,19 @@ dependencies {
     implementation(project(":libraries:jdb"))
     implementation(project(":libraries:plugin-tests"))
     implementation(project(":libraries:config"))
-    compileOnly("org.lushplugins.chatcolorhandler:paper:8.1.0")
+    compileOnly("org.lushplugins.chatcolorhandler:paper:8.1.1")
     implementation("de.oliver.FancyAnalytics:java-sdk:0.0.6")
     implementation("de.oliver.FancyAnalytics:mc-api:0.1.13")
-    implementation("de.oliver.FancyAnalytics:logger:0.0.8")
+    implementation("de.oliver.FancyAnalytics:logger:0.0.10")
     implementation("org.incendo:cloud-core:2.0.0")
-    implementation("org.incendo:cloud-paper:2.0.0-SNAPSHOT")
+    implementation("org.incendo:cloud-paper:2.0.0-beta.16")
     implementation("org.incendo:cloud-annotations:2.0.0")
     annotationProcessor("org.incendo:cloud-annotations:2.0.0")
     implementation("org.mineskin:java-client-jsoup:3.0.3-SNAPSHOT")
 
     compileOnly("me.clip:placeholderapi:2.12.2")
-    compileOnly("com.intellectualsites.plotsquared:plotsquared-core:7.5.12")
-    compileOnly("com.sk89q.worldedit:worldedit-bukkit:7.4.0")
+    compileOnly("com.intellectualsites.plotsquared:plotsquared-core:7.5.13")
+    compileOnly("com.sk89q.worldedit:worldedit-bukkit:7.4.3")
     compileOnly("net.citizensnpcs:citizens-main:2.0.42-SNAPSHOT") {
         exclude(group = "*", module = "*")
     }
@@ -93,9 +93,8 @@ paper {
 
 tasks {
     runServer {
-        minecraftVersion("26.1.2")
-//        minecraftVersion("26.2-snapshot-1")
-//        serverJar(file("/Users/oliver/Workspace/paper/paper-server/build/libs/paper-bundler-26.2-snapshot-1.build.2-alpha.jar"))
+        minecraftVersion("26.2")
+        //serverJar(file("/Users/oliver/Workspace/paper/paper-server/build/libs/paper-bundler-26.2.build.1-alpha.jar"))
 
 
         downloadPlugins {

@@ -1,20 +1,20 @@
 {
   "project_name": "FancyEconomy",
-  "plugin_jar_path": "/build/libs/FancyEconomy-%VERSION%.jar",
-  "changelog_path": "CHANGELOG.md",
-  "version_path": "VERSION",
+  "plugin_jar_path": "/plugins/fancyeconomy/build/libs/FancyEconomy-%VERSION%.jar",
+  "changelog_path": "/plugins/fancyeconomy/CHANGELOG.md",
+  "version_path": "/plugins/fancyeconomy/VERSION",
   "fancyspaces": {
     "space_id": "MX6Cna3z",
     "platform": "paper",
     "channel": "release",
     "supported_versions": [
-      "26.1.2"
+      "26.2"
     ]
   },
   "modrinth": {
     "project_id": "HwkayEYZ",
     "supported_versions": [
-      "26.1.2"
+      "26.2"
     ],
     "channel": "release",
     "loaders": [
@@ -27,7 +27,7 @@
     "author": "oliver",
     "project_id": "fancyeconomy",
     "supported_versions": [
-      "26.1.2"
+      "26.2"
     ],
     "channel": "Release"
   }

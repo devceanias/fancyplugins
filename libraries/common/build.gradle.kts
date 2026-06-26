@@ -9,7 +9,7 @@ version = findProperty("fancylibVersion") as String
 description = "Library for all Fancy plugins"
 
 java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+    toolchain.languageVersion.set(JavaLanguageVersion.of(25))
 }
 
 dependencies {
@@ -17,13 +17,13 @@ dependencies {
     compileOnly("de.oliver.FancyAnalytics:logger:0.0.10")
 
     // database drivers
-    compileOnly("org.xerial:sqlite-jdbc:3.51.2.0")
+    compileOnly("org.xerial:sqlite-jdbc:3.53.2.0")
     compileOnly("com.mysql:mysql-connector-j:9.6.0")
 
     // testing
-    testImplementation("org.junit.jupiter:junit-jupiter-api:6.0.3")
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:6.0.3")
-    testImplementation("org.junit.platform:junit-platform-console-standalone:6.0.3")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:6.1.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:6.1.0")
+    testImplementation("org.junit.platform:junit-platform-console-standalone:6.1.0")
     testImplementation("com.google.code.gson:gson:2.13.2")
 }
 
@@ -107,7 +107,7 @@ tasks {
 
         // Set the release flag. This configures what version bytecode the compiler will emit, as well as what JDK APIs are usable.
         // See https://openjdk.java.net/jeps/247 for more information.
-        options.release.set(17)
+        options.release.set(25)
     }
 
     java {

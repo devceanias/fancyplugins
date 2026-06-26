@@ -46,12 +46,13 @@ import de.oliver.fancynpcs.tracker.TurnToPlayerTracker;
 import de.oliver.fancynpcs.tracker.VisibilityTracker;
 import de.oliver.fancynpcs.utils.OldSkinCacheMigrator;
 import de.oliver.fancynpcs.v1_21_11.Npc_1_21_11;
-import de.oliver.fancynpcs.v1_21_4.Npc_1_21_4;
 import de.oliver.fancynpcs.v1_21_5.Npc_1_21_5;
 import de.oliver.fancynpcs.v1_21_6.Npc_1_21_6;
 import de.oliver.fancynpcs.v1_21_9.Npc_1_21_9;
 import de.oliver.fancynpcs.v26_1_1.Npc_26_1_1;
 import de.oliver.fancynpcs.v26_2.Npc_26_2;
+import de.oliver.fancynpcs.v26_3.Npc_26_3;
+import de.oliver.fancysitula.api.utils.ServerVersion;
 import org.apache.maven.artifact.versioning.ComparableVersion;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.EntityType;
@@ -156,16 +157,16 @@ public class FancyNpcs extends JavaPlugin implements FancyNpcsPlugin {
             fancyLogger.setCurrentLevel(LogLevel.DEBUG);
         }
 
-        String mcVersion = Bukkit.getMinecraftVersion();
+        String mcVersion = Bukkit.getServer().getMinecraftVersion();
 
         npcAdapter = switch (mcVersion) {
-            case "26.2-snapshot-1" -> Npc_26_2::new;
+            case "26.3" -> Npc_26_3::new;
+            case "26.2" -> Npc_26_2::new;
             case "26.1.2" -> Npc_26_1_1::new;
             case "1.21.11" -> Npc_1_21_11::new;
             case "1.21.9", "1.21.10" -> Npc_1_21_9::new;
             case "1.21.6", "1.21.7", "1.21.8" -> Npc_1_21_6::new;
             case "1.21.5" -> Npc_1_21_5::new;
-            case "1.21.4" -> Npc_1_21_4::new;
             default -> null;
         };
 
@@ -178,7 +179,7 @@ public class FancyNpcs extends JavaPlugin implements FancyNpcsPlugin {
             fancyLogger.error("Unsupported minecraft server version.");
             getLogger().warning("--------------------------------------------------");
             getLogger().warning("Unsupported minecraft server version.");
-            getLogger().warning("This plugin only supports 1.21.2 - latest");
+            getLogger().warning("This plugin only supports 1.21.5 - latest");
             getLogger().warning("Disabling the FancyNpcs plugin.");
             getLogger().warning("--------------------------------------------------");
             Bukkit.getPluginManager().disablePlugin(this);
@@ -195,8 +196,6 @@ public class FancyNpcs extends JavaPlugin implements FancyNpcsPlugin {
         }
 
         new FancyLib(instance); // Initialize FancyLib
-
-        String mcVersion = Bukkit.getMinecraftVersion();
 
         config.reload();
 
