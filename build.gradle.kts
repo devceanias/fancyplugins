@@ -28,7 +28,6 @@ allprojects {
         if (this is MavenArtifactRepository &&
             url.toString().contains("maven.fancyspaces.net")
         ) {
-
             content {
                 includeGroup("de.oliver.FancyAnalytics")
             }

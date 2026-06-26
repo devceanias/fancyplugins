@@ -370,7 +370,6 @@ public abstract class Hologram {
         final String rawText = String.join("\n", textData.getText());
 
         if (!rawText.equals(lastRawText)) {
-            cachedTextPerPlayer.invalidateAll();
             lastRawText = rawText;
         }
 
@@ -385,7 +384,7 @@ public abstract class Hologram {
             return cached;
         }
 
-        final Component component = MiniMessage.miniMessage().deserialize(translated);
+        final Component component = PaperColor.handler().translate(rawText, player, UnaryOperator.identity());
 
         components.put(translated, component);
 
