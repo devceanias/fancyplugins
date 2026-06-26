@@ -19,7 +19,6 @@ import org.lushplugins.chatcolorhandler.paper.PaperColor;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;
-import java.util.function.UnaryOperator;
 
 /**
  * Abstract base class for creating, updating, and managing holograms.
@@ -48,7 +47,6 @@ public abstract class Hologram {
      * Set of UUIDs of players to whom the hologram is currently shown.
      */
     protected final @NotNull Set<UUID> viewers = new HashSet<>();
-    private String lastRawText = "";
 
     protected Hologram(@NotNull final HologramData data) {
         this.data = data;
@@ -369,18 +367,14 @@ public abstract class Hologram {
 
         final String rawText = String.join("\n", textData.getText());
 
-        if (!rawText.equals(lastRawText)) {
-            lastRawText = rawText;
-        }
-
-        final String translated = PaperColor.handler().translateRaw(rawText, player, UnaryOperator.identity());
+        final String translated = PaperColor.handler().translateRaw(rawText, player);
         final Component cached = components.getIfPresent(translated);
 
         if (cached != null) {
             return cached;
         }
 
-        final Component component = PaperColor.handler().translate(rawText, player, UnaryOperator.identity());
+        final Component component = PaperColor.handler().translate(rawText, player);
 
         components.put(translated, component);
 
@@ -389,7 +383,6 @@ public abstract class Hologram {
 
     @ApiStatus.Internal
     public void clearTextCache() {
-        lastRawText = "";
     }
 
     @Override
